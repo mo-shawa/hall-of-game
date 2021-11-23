@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+	<head>
+		<title>test</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+	</head>
+	<body>
+		<h1>Test!!</h1>
+		<p>Welcome to test</p>
+		<h1><%=items.length%></h1>
+
+		<div class="container">
+			<% items.forEach(function(item){%>
+			<a href="/items/<%=item._id%>">
+				<div class="card">
+					<img src="<%=item.image%>" style="height: 100px" alt="" />
+					<h5><%=item.name%></h5>
+					<a href="/items/<%=item.category%>"
+						><small><%=item.category%></small></a
+					>
+				</div>
+			</a>
+			<%})%>
+		</div>
+	</body>
 </html>
