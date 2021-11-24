@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>test</title>
-		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<%- include('../partials/head') %>
 	</head>
 	<body>
+		<%- include('../partials/nav')%>
 		<h1>Test!!</h1>
 		<p>Welcome to test</p>
 		<h1><%=items.length%></h1>
@@ -13,7 +13,7 @@
 			<% items.forEach(function(item){%>
 			<a href="/items/<%=item._id%>">
 				<div class="card">
-					<img src="<%=item.image%>" style="height: 100px" alt="" />
+					<img class="heroimg" src="<%=item.image%>" alt="" />
 					<h5><%=item.name%></h5>
 					<a href="/items/<%=item.category%>"
 						><small><%=item.category%></small></a

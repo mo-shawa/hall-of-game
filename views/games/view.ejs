@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../partials/head') %>
+	</head>
+	<body>
+		<%- include('../partials/nav')%>
+		<section class="hero">
+			<img src="<%=game.image%>" class="heroimg" alt="" />
+		</section>
+		<section>
+			<h1><%=game.name%></h1>
+			<a href="/games/<%=game.game%>"><small><%=game.name%></small></a>
+			<a href="/games/<%=game.category%>"><small><%=game.category%></small></a>
+			<p><%=game.description%></p>
+		</section>
+		<section>
+			<a href="/items/new">Add item</a>
+		</section>
+	</body>
+</html>

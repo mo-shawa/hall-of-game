@@ -6,13 +6,16 @@ function index(req, res) {
 	// 	console.log(game);
 	// });
 	Item.find({}, function (err, items) {
-		res.render("index", { items });
+		res.render("items/index", { items });
 	});
 }
 
 function show(req, res) {
 	Item.findById(req.params.id, function (err, item) {
-		console.log(item);
+		Game.findById(item.game, function (err, game) {
+			// console.log(game);
+			res.render("items/view", { item, game });
+		});
 	});
 }
 

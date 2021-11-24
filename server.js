@@ -9,7 +9,8 @@ require("./config/database");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var itemsRouter = require("./routes/items");
-const item = require("./models/item");
+var gamesRouter = require("./routes/games");
+// const item = require("./models/item");
 
 var app = express();
 
@@ -26,7 +27,9 @@ app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+// New routes
 app.use("/items", itemsRouter);
+app.use("/games", gamesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

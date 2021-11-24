@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%- include('../partials/head')
+		<%- include('../partials/head') %>
 	</head>
-	<body></body>
+	<body>
+		<%- include('../partials/nav')%>
+		<section class="hero">
+			<img src="<%=item.image%>" class="heroimg" alt="" />
+		</section>
+		<section>
+			<h1><%=item.name%></h1>
+			<a href="/games/<%=item.game%>"><small><%=game.name%></small></a>
+			<a href="/items/<%=item.category%>"><small><%=item.category%></small></a>
+			<p><%=item.description%></p>
+		</section>
+	</body>
 </html>
