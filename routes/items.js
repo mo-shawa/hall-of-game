@@ -4,5 +4,7 @@ const itemsCtrl = require("../controllers/items");
 
 router.get("/", itemsCtrl.index);
 router.get("/:id", itemsCtrl.show);
+router.get("/new/:id", itemsCtrl.new);
+router.post("/", itemsCtrl.create);
 
 module.exports = router;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../partials/head')%>
+	</head>
+	<%- include('../partials/nav')%>
+
+	<body>
+		<h1>Add item to <%=game.name%></h1>
+		<form action="/items/<%=game._id%>" method="POST">
+			<div>
+				<label for="name">Name: </label>
+				<br />
+				<input type="text" name="name" id="name" required />
+			</div>
+			<div>
+				<label for="category">Category: </label>
+				<br />
+				<select name="category" id="category">
+					<option value="Weapon">Weapon</option>
+					<option value="Character">Character</option>
+					<option value="Map">Map</option>
+					<option value="Item">Item</option>
+				</select>
+			</div>
+			<div>
+				<label for="name">Image URL: </label>
+				<br />
+				<input type="url" name="image" id="image" required />
+			</div>
+			<div>
+				<label for="description">Description: </label>
+				<br />
+				<input type="text" name="description" id="description" required />
+			</div>
+			<button type="submit">Add Item</button>
+		</form>
+	</body>
+</html>
