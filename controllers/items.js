@@ -48,8 +48,25 @@ function create(req, res) {
 	});
 }
 
-function catIndex(req, res) {
-	res.render("items/categories/index", {});
+function editItem(req, res) {
+	Item.findById(req.params.id, function (err, item) {
+		if (err) return res.send(err.message);
+		res.render("items/edit", { item });
+	});
+}
+
+function deleteItem(req, res) {
+	Item.findByIdAndDelete(req.params.id, function (err) {
+		// if (err) return res.send(err.message);
+		res.redirect("/items");
+	});
+}
+
+function update(req, res) {
+	Item.findByIdAndUpdate(req.params.id, req.body, function (err, item) {
+		if (err) return res.send(err.message);
+		res.redirect(`/items/${item._id}`);
+	});
 }
 
 function catShow(req, res) {
@@ -64,6 +81,8 @@ module.exports = {
 	show,
 	new: newItem,
 	create,
-	catIndex,
+	edit: editItem,
+	update,
+	delete: deleteItem,
 	catShow,
 };

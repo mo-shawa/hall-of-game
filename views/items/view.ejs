@@ -15,6 +15,10 @@
 				><small><%=item.category%></small></a
 			>
 			<p><%=item.description%></p>
+			<form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+				<button type="submit">Delete item</button>
+			</form>
+			<a href="/items/<%=item._id%>/edit"><button>Edit item</button></a>
 		</section>
 	</body>
 </html>

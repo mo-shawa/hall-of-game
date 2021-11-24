@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%-include('../partials/head')%>
+		<title>Document</title>
+	</head>
+	<body>
+		<%-include('../partials/nav')%>
+		<section>
+			<form action="/items/<%=item._id%>?_method=PUT" method="POST">
+				<div>
+					<label for="name">Name:</label>
+					<br />
+					<input type="text" name="name" id="name" value="<%=item.name%>" />
+				</div>
+				<div>
+					<label for="category">category:</label>
+					<br />
+					<select name="category" id="category">
+						<option value="Weapon">Weapon</option>
+						<option value="Character">Character</option>
+						<option value="Map">Map</option>
+						<option value="Item">Item</option>
+					</select>
+				</div>
+				<div>
+					<label for="image">Image URL:</label>
+					<br />
+					<input type="url" name="image" id="image" value="<%=item.image%>" />
+				</div>
+				<div>
+					<label for="description">Description:</label>
+					<br />
+					<textarea name="description" id="description" cols="30" rows="10">
+<%=item.description%></textarea
+					>
+				</div>
+				<button type="submit">Update</button>
+			</form>
+		</section>
+	</body>
+</html>
