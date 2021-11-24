@@ -16,6 +16,15 @@
 		</section>
 		<section>
 			<a href="/items/new/<%=game._id%>">Add item</a>
+			<% items.forEach(function(item){%>
+			<a href="/items/<%=item._id%>">
+				<div class="card">
+					<img src="<%=item.image%>" style="width: 100px" alt="" />
+					<h5><%=item.name%></h5>
+					<small><%=item.category%></small>
+				</div>
+			</a>
+			<%})%>
 		</section>
 	</body>
 </html>

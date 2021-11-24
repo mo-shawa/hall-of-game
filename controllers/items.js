@@ -27,25 +27,36 @@ function newItem(req, res) {
 
 function create(req, res) {
 	// Delete empty keys for defaults to take
-	// for (let key in req.body) {
-	// 	if (req.body[key] === "") delete req.body[key];
-	// }
+	for (let key in req.body) {
+		if (req.body[key] === "") delete req.body[key];
+	}
 	// Add game id based on Url path
-	// req.body.game = req.params.g_id;
+	req.body.game = req.params.g_id;
 	// Save item into db
 	const item = new Item(req.body);
 
-	item.save(function (err) {
-		res.send("bruh");
-	});
-
 	// item.save(function (err) {
-	// 	Game.findById(item.game, function (err, game) {
-	// 		if (err) return res.send(err.message);
-	// 		console.log(game);
-	// 		res.render("items/view", { item, game });
-	// 	});
+	// 	res.send("bruh");
 	// });
+
+	item.save(function (err) {
+		Game.findById(req.params.g_id, function (err, game) {
+			if (err) return res.send(err.message);
+			console.log(game);
+			res.render("items/view", { item, game });
+		});
+	});
+}
+
+function catIndex(req, res) {
+	res.render("items/categories/index", {});
+}
+
+function catShow(req, res) {
+	Item.find({ category: req.params.cat }, function (err, items) {
+		if (err) return res.send(err.message);
+		res.render(`items/categories/view`, { items, cat: req.params.cat });
+	});
 }
 
 module.exports = {
@@ -53,4 +64,6 @@ module.exports = {
 	show,
 	new: newItem,
 	create,
+	catIndex,
+	catShow,
 };
