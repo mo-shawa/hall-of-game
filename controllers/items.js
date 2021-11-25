@@ -2,9 +2,6 @@ const Game = require("../models/game");
 const Item = require("../models/item");
 
 function index(req, res) {
-	// Game.find({ _id: "619c93cad6735eceff1c4fbd" }, function (err, game) {
-	// 	console.log(game);
-	// });
 	Item.find({}, function (err, items) {
 		res.render("items/index", { items });
 	});
@@ -34,10 +31,6 @@ function create(req, res) {
 	req.body.game = req.params.g_id;
 	// Save item into db
 	const item = new Item(req.body);
-
-	// item.save(function (err) {
-	// 	res.send("bruh");
-	// });
 
 	item.save(function (err) {
 		Game.findById(req.params.g_id, function (err, game) {
