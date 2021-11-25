@@ -5,16 +5,30 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<%-include('../../partials/nav')%>
-		<section>
-			<h1><%=cat%>s</h1>
-			<%items.forEach(function(item){%>
-			<div>
-				<img src="<%=item.image%>" style="height: 100px" alt="" />
-				<h5><%=item.name%></h5>
-				<small><%=item.game%></small>
+		<%-include('../../partials/nav')%> <% let num =
+		Math.floor(Math.random()*items.length) %>
+		<section class="container animated-gradient-hr pb-3 rounded-bottom">
+			<img src="<%=items[num].image%>" class="img-fluid" alt="" />
+		</section>
+		<section class="container my-3">
+			<h1 class="text-center text-light"><%=cat%>s</h1>
+			<div class="d-flex justify-content-center flex-wrap">
+				<%items.forEach(function(item){%>
+				<div class="card shadow bg-dark m-2" style="width: 18rem">
+					<a href="/items/<%=item._id%>">
+						<img class="card-img-top" src="<%=item.image%>" alt="" />
+						<div class="card-body">
+							<h5><%=item.name%></h5>
+							<a href="/games/<%=item.game%>"
+								><small class="shadow rounded-pill bg-info p-1 px-2 text-light"
+									><%=item.game%></small
+								></a
+							>
+						</div>
+					</a>
+				</div>
+				<%})%>
 			</div>
-			<%})%>
 		</section>
 	</body>
 </html>

@@ -6,30 +6,12 @@
 	
 	<body>
 		<%- include('../partials/nav')%>
-		<!-- <form action="/games" method="post">
-			<div>
-				<label for="name">Name: </label>
-				<br />
-				<input type="text" name="name" id="name" required />
-			</div>
-			<div>
-				<label for="image">Image link: </label>
-				<br />
-				<input type="text" name="image" id="image" />
-			</div>
-			<div>
-				<label for="releaseYear">Release Year: </label>
-				<br />
-				<input type="number" name="releaseYear" id="releaseYear" />
-			</div>
-			<br />
-			<button type="submit">Add Game</button>
-		</form> -->
+
 		<div
-			class="text-center text-light"
+			class="text-center text-light animated-gradient-hr"
 		>
 			<div
-				class="p-5 bg-success"
+				class="p-5"
 				style="
 					backdrop-filter: blur(14px) saturate(180%);
 					-webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -51,24 +33,14 @@
 					/>
 				</div>
 				<div class="form-group">
-					<label for="description">Description:</label>
-					<br />
-					<input
-						class="form-control"
-						type="text"
-						name="description"
-						id="description"
-					/>
-				</div>
-				<div class="form-group">
 					<label for="image">Image URL:</label>
 					<br />
 					<input
-						class="form-control"
-						type="url"
-						name="image"
-						id="image"
-						
+					class="form-control"
+					type="url"
+					name="image"
+					id="image"
+					
 					/>
 				</div>
 				<div class="form-group">
@@ -76,11 +48,21 @@
 					<br />
 					
 					<input
-						class="form-control"
-						name="releaseYear"
-						id="releaseYear"
-						type="number"
+					class="form-control"
+					name="releaseYear"
+					id="releaseYear"
+					type="number"
 					>
+				</div>
+				<div class="form-group">
+					<label for="description">Description:</label>
+					<br />
+					<textarea
+						class="form-control"
+						type="text"
+						name="description"
+						id="description"
+					></textarea>
 				</div>
 				<button class="shadow btn btn-success btn-block" type="submit">
 					Add Game
