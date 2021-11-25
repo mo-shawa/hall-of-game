@@ -5,20 +5,30 @@
 	</head>
 	<body>
 		<%- include('../partials/nav')%>
-		<section class="hero">
-			<img src="<%=item.image%>" class="heroimg" alt="" />
+		<section class="container">
+			<img src="<%=item.image%>" class="img-fluid" alt="" />
 		</section>
-		<section>
-			<h1><%=item.name%></h1>
-			<a href="/games/<%=item.game%>"><small><%=game.name%></small></a>
-			<a href="/items/categories/<%=item.category%>"
-				><small><%=item.category%></small></a
-			>
-			<p><%=item.description%></p>
-			<form action="/items/<%=item._id%>?_method=DELETE" method="POST">
-				<button type="submit">Delete item</button>
-			</form>
-			<a href="/items/<%=item._id%>/edit"><button>Edit item</button></a>
+		<section class="container text-center my-3">
+			<h1 class="text-light"><%=item.name%></h1>
+			<div class="rounded bg-light mx-auto w-50 rounded-pill">
+				<a href="/games/<%=item.game%>"><small><%=game.name%></small></a>
+				<a href="/items/categories/<%=item.category%>"
+					><small><%=item.category%></small></a
+				>
+			</div>
+			<div class="text-left w-50 mx-auto my-3 text-secondary">
+				<p><%=item.description%></p>
+			</div>
+			<div class="w-50 mx-auto">
+				<form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+					<button class="btn btn-block btn-danger" type="submit">
+						Delete item
+					</button>
+				</form>
+				<a href="/items/<%=item._id%>/edit"
+					><button class="mt-3 btn btn-block btn-warning">Edit item</button></a
+				>
+			</div>
 		</section>
 	</body>
 </html>

@@ -3,10 +3,10 @@
 	<head>
 		<%- include('../partials/head')%>
 	</head>
-	<%- include('../partials/nav')%>
-
+	
 	<body>
-		<form action="/games" method="post">
+		<%- include('../partials/nav')%>
+		<!-- <form action="/games" method="post">
 			<div>
 				<label for="name">Name: </label>
 				<br />
@@ -24,6 +24,67 @@
 			</div>
 			<br />
 			<button type="submit">Add Game</button>
-		</form>
+		</form> -->
+		<div
+			class="text-center text-light"
+		>
+			<div
+				class="p-5 bg-success"
+				style="
+					backdrop-filter: blur(14px) saturate(180%);
+					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				"
+			>
+				<h1 class="fs-4 p-5">Add a Game</h1>
+			</div>
+		</div>
+		<section class="my-5 text-light d-flex justify-content-center">
+			<form action="/games" method="POST">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<br />
+					<input
+						class="form-control"
+						type="text"
+						name="name"
+						id="name"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="description">Description:</label>
+					<br />
+					<input
+						class="form-control"
+						type="text"
+						name="description"
+						id="description"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="image">Image URL:</label>
+					<br />
+					<input
+						class="form-control"
+						type="url"
+						name="image"
+						id="image"
+						
+					/>
+				</div>
+				<div class="form-group">
+					<label for="releaseYear">Release Year:</label>
+					<br />
+					
+					<input
+						class="form-control"
+						name="releaseYear"
+						id="releaseYear"
+						type="number"
+					>
+				</div>
+				<button class="shadow btn btn-success btn-block" type="submit">
+					Add Game
+				</button>
+			</form>
 	</body>
 </html>
