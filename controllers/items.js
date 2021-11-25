@@ -70,10 +70,13 @@ function update(req, res) {
 }
 
 function catShow(req, res) {
-	Item.find({ category: req.params.cat }, function (err, items) {
-		if (err) return res.send(err.message);
-		res.render(`items/categories/view`, { items, cat: req.params.cat });
-	});
+	Item.find({ category: req.params.cat })
+		.populate("game")
+		.exec(function (err, items) {
+			console.log(items);
+			if (err) return res.send(err.message);
+			res.render(`items/categories/view`, { items, cat: req.params.cat });
+		});
 }
 
 module.exports = {
