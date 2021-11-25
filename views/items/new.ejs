@@ -6,34 +6,72 @@
 	<%- include('../partials/nav')%>
 
 	<body>
-		<h1>Add item to <%=game.name%></h1>
-		<form action="/items/<%=game._id%>" method="POST">
-			<div>
-				<label for="name">Name: </label>
-				<br />
-				<input type="text" name="name" id="name" required />
+		<div
+			class="text-center"
+			style="background-image: url('<%=game.image%>'); background-size: cover"
+		>
+			<div
+				class="p-5"
+				style="
+					backdrop-filter: blur(14px) saturate(180%);
+					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				"
+			>
+				<h1 class="fs-4 py-5 w-50 mx-auto text-light">
+					Add item to <br />
+					<%=game.name%>
+				</h1>
 			</div>
-			<div>
-				<label for="category">Category: </label>
-				<br />
-				<select name="category" id="category">
-					<option value="Weapon">Weapon</option>
-					<option value="Character">Character</option>
-					<option value="Map">Map</option>
-					<option value="Item">Item</option>
-				</select>
-			</div>
-			<div>
-				<label for="name">Image URL: </label>
-				<br />
-				<input type="url" name="image" id="image" required />
-			</div>
-			<div>
-				<label for="description">Description: </label>
-				<br />
-				<input type="text" name="description" id="description" required />
-			</div>
-			<button type="submit">Add Item</button>
-		</form>
+		</div>
+		<section class="my-5 text-light d-flex justify-content-center">
+			<form action="/items/<%=game._id%>" method="POST">
+				<div class="form-group">
+					<label for="name">Name: </label>
+					<br />
+					<input
+						class="form-control"
+						type="text"
+						name="name"
+						id="name"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="category">Category: </label>
+					<br />
+					<select class="form-control" name="category" id="category">
+						<option value="Weapon">Weapon</option>
+						<option value="Character">Character</option>
+						<option value="Map">Map</option>
+						<option value="Item">Item</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="name">Image URL: </label>
+					<br />
+					<input
+						class="form-control"
+						type="url"
+						name="image"
+						id="image"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="description">Description: </label>
+					<br />
+					<textarea
+						class="form-control"
+						type="text"
+						name="description"
+						id="description"
+						required
+					></textarea>
+				</div>
+				<button class="btn btn-success btn-block" type="submit">
+					Add Item
+				</button>
+			</form>
+		</section>
 	</body>
 </html>

@@ -4,24 +4,46 @@
 		<%- include('../partials/head')%>
 	</head>
 	<body>
-		<%- include('../partials/nav')%>
-
-		<h1>Games!!</h1>
-		<p>Welcome to Games</p>
-		<h1><%=games.length%></h1>
-
+		<%- include('../partials/nav')%> <% let num =
+		Math.floor(Math.random()*games.length) %>
+		<div
+			class="text-center"
+			style="
+				background-image: url('<%=games[num].image%>');
+				background-size: cover;
+			"
+		>
+			<div
+				class="p-5"
+				style="
+					backdrop-filter: blur(14px) saturate(180%);
+					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				"
+			>
+				<h1 class="fs-4 py-5 w-50 mx-auto text-light">Games</h1>
+			</div>
+		</div>
 		<div class="container">
-			<% games.forEach(function(game){%>
-			<a href="/games/<%=game._id%>">
-				<div class="card">
-					<img class="heroimg" src="<%=game.image%>" alt="" />
-					<h5><%=game.name%></h5>
-					<a href="/games/<%=game.category%>"
-						><small><%=game.category%></small></a
-					>
-				</div>
-			</a>
-			<%})%>
+			<div class="d-flex justify-content-center flex-wrap">
+				<% games.forEach(function(game){%>
+				<a href="/games/<%=game._id%>">
+					<div class="card position-relative shadow bg-dark m-2">
+						<img
+							class="card-img-top"
+							src="<%=game.image%>"
+							style="width: 18rem"
+							alt=""
+						/>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%=game.name%></h5>
+						</div>
+						<small class="position-absolute bg-dark p-1 text-light"
+							><%=game.releaseYear%></small
+						>
+					</div>
+				</a>
+				<%})%>
+			</div>
 		</div>
 	</body>
 </html>

@@ -3,27 +3,70 @@
 	<head>
 		<%- include('../partials/head')%>
 	</head>
-	<%- include('../partials/nav')%>
-
+	
 	<body>
-		<form action="/games" method="post">
-			<div>
-				<label for="name">Name: </label>
-				<br />
-				<input type="text" name="name" id="name" required />
+		<%- include('../partials/nav')%>
+
+		<div
+			class="text-center text-light animated-gradient-hr"
+		>
+			<div
+				class="p-5"
+				style="
+					backdrop-filter: blur(14px) saturate(180%);
+					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				"
+			>
+				<h1 class="fs-4 p-5">Add a Game</h1>
 			</div>
-			<div>
-				<label for="image">Image link: </label>
-				<br />
-				<input type="text" name="image" id="image" />
-			</div>
-			<div>
-				<label for="releaseYear">Release Year: </label>
-				<br />
-				<input type="number" name="releaseYear" id="releaseYear" />
-			</div>
-			<br />
-			<button type="submit">Add Game</button>
-		</form>
+		</div>
+		<section class="my-5 text-light d-flex justify-content-center">
+			<form action="/games" method="POST">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<br />
+					<input
+						class="form-control"
+						type="text"
+						name="name"
+						id="name"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="image">Image URL:</label>
+					<br />
+					<input
+					class="form-control"
+					type="url"
+					name="image"
+					id="image"
+					
+					/>
+				</div>
+				<div class="form-group">
+					<label for="releaseYear">Release Year:</label>
+					<br />
+					
+					<input
+					class="form-control"
+					name="releaseYear"
+					id="releaseYear"
+					type="number"
+					>
+				</div>
+				<div class="form-group">
+					<label for="description">Description:</label>
+					<br />
+					<textarea
+						class="form-control"
+						type="text"
+						name="description"
+						id="description"
+					></textarea>
+				</div>
+				<button class="shadow btn btn-success btn-block" type="submit">
+					Add Game
+				</button>
+			</form>
 	</body>
 </html>

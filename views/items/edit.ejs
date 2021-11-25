@@ -6,36 +6,71 @@
 	</head>
 	<body>
 		<%-include('../partials/nav')%>
-		<section>
+		<div
+			class="text-center text-light"
+			style="background-image: url('<%=item.image%>'); background-size: cover"
+		>
+			<div
+				class="p-5"
+				style="
+					backdrop-filter: blur(14px) saturate(180%);
+					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				"
+			>
+				<h1 class="fs-4 p-5"><%=item.name%></h1>
+			</div>
+		</div>
+		<section class="container my-5 text-light d-flex justify-content-center">
 			<form action="/items/<%=item._id%>?_method=PUT" method="POST">
-				<div>
+				<div class="form-group">
 					<label for="name">Name:</label>
 					<br />
-					<input type="text" name="name" id="name" value="<%=item.name%>" />
+					<input
+						class="form-control"
+						type="text"
+						name="name"
+						id="name"
+						value="<%=item.name%>"
+					/>
 				</div>
-				<div>
-					<label for="category">category:</label>
+				<div class="form-group">
+					<label for="category">Category:</label>
 					<br />
-					<select name="category" id="category">
+					<select class="form-control" name="category" id="category">
+						<option value="<%=item.category%>"><%=item.category%></option>
 						<option value="Weapon">Weapon</option>
 						<option value="Character">Character</option>
 						<option value="Map">Map</option>
 						<option value="Item">Item</option>
 					</select>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="image">Image URL:</label>
 					<br />
-					<input type="url" name="image" id="image" value="<%=item.image%>" />
+					<input
+						class="form-control"
+						type="url"
+						name="image"
+						id="image"
+						value="<%=item.image%>"
+					/>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="description">Description:</label>
 					<br />
-					<textarea name="description" id="description" cols="30" rows="10">
+					<textarea
+						class="form-control"
+						name="description"
+						id="description"
+						cols="30"
+						rows="10"
+					>
 <%=item.description%></textarea
 					>
 				</div>
-				<button type="submit">Update</button>
+				<button class="shadow btn btn-success btn-block" type="submit">
+					Update
+				</button>
 			</form>
 		</section>
 	</body>
