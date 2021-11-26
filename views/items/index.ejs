@@ -27,7 +27,10 @@
 			<div class="d-flex justify-content-center flex-wrap">
 				<% items.forEach(function(item){%>
 				<a href="/items/<%=item._id%>">
-					<div class="card shadow bg-dark m-2" style="width: 18rem">
+					<div
+						class="animated-gradient-hr card shadow bg-dark m-2"
+						style="width: 18rem"
+					>
 						<img class="card-img-top" src="<%=item.image%>" alt="" />
 						<div class="card-body">
 							<h5 class="card-title"><%=item.name%></h5>

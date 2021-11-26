@@ -27,7 +27,16 @@
 			<div class="d-flex justify-content-center flex-wrap">
 				<% games.forEach(function(game){%>
 				<a href="/games/<%=game._id%>">
-					<div class="card position-relative shadow bg-dark m-2">
+					<div
+						class="
+							animated-gradient-hr
+							card
+							position-relative
+							shadow
+							bg-dark
+							m-2
+						"
+					>
 						<img
 							class="card-img-top"
 							src="<%=game.image%>"

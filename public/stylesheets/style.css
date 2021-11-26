@@ -1,42 +1,31 @@
-/* body {
-	margin: 0;
-	padding: 0;
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-section {
-	max-width: 1120px;
+body {
+	background-color: rgb(9, 9, 9);
 }
 
 a {
-	color: #00b7ff;
+	list-style: none;
+	color: white;
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
+a:hover {
+	text-decoration: none;
+	color: white;
 }
-.hero {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.heroimg {
-	width: 100vw;
-	max-width: 1120px;
+.card-body {
+	background-color: #343a40;
+	transition: background-color 300ms;
 }
 
-nav {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 5px;
-	border-bottom: 1px solid grey;
-} */
-body {
-	background-color: rgb(9, 9, 9);
+.card-body:hover {
+	background-color: transparent;
+}
+
+.rgb {
+	position: absolute;
+	height: 1rem;
+	width: 100%;
+	bottom: 0;
+	left: 0;
 }
 
 .animated-gradient-hr {

@@ -10,9 +10,14 @@
 		</section>
 		<section class="container text-center my-3">
 			<h1 class="text-light"><%=item.name%></h1>
-			<div class="rounded bg-light mx-auto w-50 rounded-pill">
-				<a href="/games/<%=item.game%>"><small><%=game.name%></small></a>
-				<a href="/items/categories/<%=item.category%>"
+			<div
+				class="rounded bg-secondary mx-auto rounded-pill px-2"
+				style="max-width: fit-content"
+			>
+				<a class="text-light" href="/games/<%=item.game%>"
+					><small><%=game.name%></small></a
+				>
+				<a class="text-light" href="/items/categories/<%=item.category%>"
 					><small><%=item.category%></small></a
 				>
 			</div>

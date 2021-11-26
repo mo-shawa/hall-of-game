@@ -22,7 +22,7 @@
 		<section class="container">
 			<div class="d-flex justify-content-center flex-wrap">
 				<% items.forEach(function(item){%>
-				<div class="card shadow bg-dark m-2">
+				<div class="animated-gradient-hr card shadow bg-dark m-2">
 					<a href="/items/<%=item._id%>">
 						<img
 							class="card-image-top"
@@ -33,7 +33,7 @@
 						<div class="card-body">
 							<h5><%=item.name%></h5>
 							<a href="/items/categories/<%=item.category%>"
-								><small class="shadow rounded-pill bg-info p-1 text-light"
+								><small class="shadow rounded-pill bg-info p-1 px-2 text-light"
 									><%=item.category%></small
 								></a
 							>
