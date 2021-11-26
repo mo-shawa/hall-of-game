@@ -20,7 +20,9 @@ Hall of Game is currently a database for games and their entities, but hopes to 
     <li>Bootstrap</li>
     <li>Express.js</li>
     <li>Mongoose</li>
+    <li>MongoDB Atlas</li>
     <li>EJS</li>
+    <li>Heroku</li>
 </ul>
 <hr>
 
