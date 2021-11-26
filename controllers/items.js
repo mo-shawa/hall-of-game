@@ -10,7 +10,6 @@ function index(req, res) {
 function show(req, res) {
 	Item.findById(req.params.id, function (err, item) {
 		Game.findById(item.game, function (err, game) {
-			// console.log(game);
 			res.render("items/view", { item, game });
 		});
 	});
@@ -66,7 +65,6 @@ function catShow(req, res) {
 	Item.find({ category: req.params.cat })
 		.populate("game")
 		.exec(function (err, items) {
-			console.log(items);
 			if (err) return res.send(err.message);
 			res.render(`items/categories/view`, { items, cat: req.params.cat });
 		});
