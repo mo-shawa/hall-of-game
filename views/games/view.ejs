@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<%- include('../partials/head') %>
-	</head>
-	<body>
-		<%- include('../partials/nav')%>
+
+<head>
+	<%- include('../partials/head') %>
+</head>
+
+<body>
+	<%- include('../partials/nav')%>
 		<section class="d-flex container animated-gradient-hr pb-3 rounded-bottom">
-			<img src="<%=game.image%>" class="img-fluid mx-auto" alt="" />
+			<img src="<%=items[0].game.image%>" class="img-fluid mx-auto" alt="" />
 		</section>
 
 		<section class="container my-3">
 			<div class="d-flex justify-content-center align-items-center flex-column">
-				<h1 class="text-center text-light"><%=game.name%></h1>
-				<p class="text-secondary"><%=game.description%></p>
-				<a href="/items/new/<%=game._id%>"
-					><button class="btn btn-success">Add item</button></a
-				>
+				<h1 class="text-center text-light">
+					<%=items[0].game.name%>
+				</h1>
+				<p class="text-secondary">
+					<%=items[0].game.description%>
+				</p>
+				<a href="/items/new/<%=items[0].game._id%>"><button class="btn btn-success">Add item</button></a>
 			</div>
 		</section>
 
 		<section class="container">
 			<div class="d-flex justify-content-center flex-wrap">
 				<% items.forEach(function(item){%>
-				<div class="animated-gradient-hr card shadow bg-dark m-2">
-					<a href="/items/<%=item._id%>">
-						<img
-							class="card-image-top"
-							src="<%=item.image%>"
-							style="width: 18rem"
-							alt=""
-						/>
-						<div class="card-body">
-							<h5><%=item.name%></h5>
-							<a href="/items/categories/<%=item.category%>"
-								><small class="shadow rounded-pill bg-info p-1 px-2 text-light"
-									><%=item.category%></small
-								></a
-							>
-						</div>
-					</a>
-				</div>
-				<%})%>
+					<div class="animated-gradient-hr card shadow bg-dark m-2">
+						<a href="/items/<%=item._id%>">
+							<img class="card-image-top" src="<%=item.image%>" style="width: 18rem" alt="" />
+							<div class="card-body">
+								<h5>
+									<%=item.name%>
+								</h5>
+								<a href="/items/categories/<%=item.category%>"><small
+										class="shadow rounded-pill bg-info p-1 px-2 text-light">
+										<%=item.category%>
+									</small></a>
+							</div>
+						</a>
+					</div>
+					<%})%>
 			</div>
 		</section>
-	</body>
+</body>
+
 </html>

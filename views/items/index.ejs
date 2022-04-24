@@ -12,18 +12,17 @@
 				background-image: url('<%=items[num].image%>');
 				background-size: cover;
 			">
-				<div class="p-5" style="
-					backdrop-filter: blur(14px) saturate(180%);
-					-webkit-backdrop-filter: blur(16px) saturate(180%);
+				<div class="p-5 glass" style="
+					
 				">
 					<h1 class="fs-4 p-5 w-50 mx-auto text-light">Items</h1>
 				</div>
 			</div>
-			<div class="container">
+			<div class="container py-3">
 				<div class="d-flex justify-content-center flex-wrap">
 					<% items.forEach(function(item){%>
 						<a href="/items/<%=item._id%>">
-							<div class="animated-gradient-hr card shadow bg-dark m-2" style="width: 18rem;">
+							<div class="animated-gradient card shadow bg-dark m-2" style="width: 18rem;">
 								<img class="card-img-top" src="<%=item.image%>" />
 
 								<div class="card-body">
@@ -31,7 +30,7 @@
 										<%=item.name%>
 									</h5>
 									<a href="/items/categories/<%=item.category%>">
-										<small class="shadow rounded-pill secondary p-1 px-2 text-light">
+										<small class="shadow rounded-pill primary p-1 px-2 text-dark ">
 											<%=item.category%>
 										</small>
 									</a>
