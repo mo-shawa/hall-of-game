@@ -1,58 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<%- include('../partials/head')%>
-	</head>
-	<body>
-		<%- include('../partials/nav')%> <% let num =
-		Math.floor(Math.random()*games.length) %>
-		<div
-			class="text-center"
-			style="
+
+<head>
+	<%- include('../partials/head')%>
+</head>
+
+<body>
+	<%- include('../partials/nav')%>
+		<% let num=Math.floor(Math.random()*games.length) %>
+			<div class="text-center" style="
 				background-image: url('<%=games[num].image%>');
 				background-size: cover;
-			"
-		>
-			<div
-				class="p-5"
-				style="
+			">
+				<div class="p-5" style="
 					backdrop-filter: blur(14px) saturate(180%);
 					-webkit-backdrop-filter: blur(16px) saturate(180%);
-				"
-			>
-				<h1 class="fs-4 py-5 w-50 mx-auto text-light">Games</h1>
+				">
+					<h1 class="fs-4 py-5 w-50 mx-auto text-light">Games</h1>
+				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="d-flex justify-content-center flex-wrap">
-				<% games.forEach(function(game){%>
-				<a href="/games/<%=game._id%>">
-					<div
-						class="
+			<div class="container">
+				<div class="d-flex justify-content-center flex-wrap">
+					<% games.forEach(function(game){%>
+						<a href="/games/<%=game._id%>">
+							<div class="
 							animated-gradient-hr
 							card
 							position-relative
 							shadow
 							bg-dark
 							m-2
-						"
-					>
-						<img
-							class="card-img-top"
-							src="<%=game.image%>"
-							style="width: 18rem"
-							alt=""
-						/>
-						<div class="card-body text-center">
-							<h5 class="card-title"><%=game.name%></h5>
-						</div>
-						<small class="position-absolute bg-dark p-1 text-light"
-							><%=game.releaseYear%></small
-						>
-					</div>
-				</a>
-				<%})%>
+							">
+								<img class="card-img-top" src="<%=game.image%>" style="width: 18rem" alt="" />
+								<div class="card-body text-center">
+									<h5 class="card-title">
+										<%=game.name%>
+									</h5>
+								</div>
+								<small class="position-absolute bg-dark p-1 text-light">
+									<%=game.releaseYear%>
+								</small>
+							</div>
+						</a>
+						<%})%>
+				</div>
 			</div>
-		</div>
-	</body>
+</body>
+
 </html>
