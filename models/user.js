@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    collections: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Collection'
+    }]
 
 });
 
