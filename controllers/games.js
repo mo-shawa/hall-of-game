@@ -14,14 +14,6 @@ function show(req, res) {
 			if (err) return res.send(err.message);
 			res.render('games/view', { items });
 
-			// Game.findById(req.params.id)
-			// 	.populate("items").exec(function (err, game) {
-			// 		Item.find({}, function (err, items) {
-			// 			console.log(game);
-			// 			res.render("games/view", { game, items });
-			// 		});
-			// 	});
-
 			// Game.findById(req.params.id, function (err, game) {
 			// 	Item.find({ game: game._id }, function (err, items) {
 			// 		console.log(items);
