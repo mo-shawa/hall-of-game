@@ -8,6 +8,14 @@ a {
 	color: white;
 }
 
+.card-img-top {
+	aspect-ratio: 16/9;
+}
+
+.detail-img {
+	width: fit-content;
+}
+
 a:hover {
 	text-decoration: none;
 	color: white;

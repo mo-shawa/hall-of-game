@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<%- include('../partials/head') %>
-	</head>
-	<body>
-		<%- include('../partials/nav')%>
-		<section class="d-flex container animated-gradient-hr pb-3 rounded-bottom">
+
+<head>
+	<%- include('../partials/head') %>
+</head>
+
+<body>
+	<%- include('../partials/nav')%>
+		<section class="d-flex container animated-gradient-hr pb-3 rounded-bottom detail-img">
 			<img src="<%=item.image%>" class="img-fluid mx-auto" alt="" />
 		</section>
 		<section class="container text-center my-3">
-			<h1 class="text-light"><%=item.name%></h1>
-			<div
-				class="rounded bg-secondary mx-auto rounded-pill px-2"
-				style="max-width: fit-content"
-			>
-				<a class="text-light" href="/games/<%=item.game%>"
-					><small><%=game.name%></small></a
-				>
-				<a class="text-light" href="/items/categories/<%=item.category%>"
-					><small><%=item.category%></small></a
-				>
+			<h1 class="text-light">
+				<%=item.name%>
+			</h1>
+			<div class="rounded bg-secondary mx-auto rounded-pill px-2" style="max-width: fit-content">
+				<a class="text-light" href="/games/<%=item.game%>"><small>
+						<%=game.name%>
+					</small></a>
+				<a class="text-light" href="/items/categories/<%=item.category%>"><small>
+						<%=item.category%>
+					</small></a>
 			</div>
 			<div class="text-left w-50 mx-auto my-3 text-secondary">
-				<p><%=item.description%></p>
+				<p>
+					<%=item.description%>
+				</p>
 			</div>
 			<div class="w-50 mx-auto">
 				<form action="/items/<%=item._id%>?_method=DELETE" method="POST">
@@ -30,10 +33,10 @@
 						Delete item
 					</button>
 				</form>
-				<a href="/items/<%=item._id%>/edit"
-					><button class="mt-3 btn btn-block btn-warning">Edit item</button></a
-				>
+				<a href="/items/<%=item._id%>/edit"><button class="mt-3 btn btn-block btn-warning">Edit
+						item</button></a>
 			</div>
 		</section>
-	</body>
+</body>
+
 </html>
