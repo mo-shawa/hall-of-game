@@ -16,7 +16,12 @@ async function show(req, res) {
 	// 		res.render('games/view', { items });
 	// 	});
 	const comments = await Comment.find({ modelID: req.params.id, onModel: "Game" })
-	const rating = comments.reduce((acc, curr) => (acc + curr.rating) / comments.length, 3) / comments.length;
+	console.log(comments)
+
+	let rating = comments.reduce((acc, curr) => {
+		return acc + curr.rating;
+	}, 3);
+	rating = rating / (comments.length + 1);
 
 	Game.findById(req.params.id, function (err, game) {
 		Item.find({ game: game._id }, function (err, items) {
