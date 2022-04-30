@@ -8,18 +8,40 @@
 <body>
 	<%- include('../partials/nav')%>
 		<section class="d-flex container animated-gradient-hr pb-3 rounded-bottom detail-img">
-			<img src="<%=items[0].game.image%>" class="img-fluid mx-auto" alt="" />
+			<img src="<%=game.image%>" class="img-fluid mx-auto" alt="" />
 		</section>
 
 		<section class="container my-3">
 			<div class="d-flex justify-content-center align-items-center flex-column">
 				<h1 class="text-center text-light">
-					<%=items[0].game.name%>
+					<%=game.name%>
 				</h1>
 				<p class="text-secondary">
-					<%=items[0].game.description%>
+					<%=game.description%>
 				</p>
-				<a href="/items/new/<%=items[0].game._id%>"><button class="btn btn-success">Add item</button></a>
+				<p class="text-secondary">
+					<%=rating%>
+				</p>
+				<a href="/items/new/<%=game._id%>"><button class="btn btn-success">Add item</button></a>
+				<form action="/games/<%=game._id%>/comments" method="POST">
+					<input type="text" name="text" placeholder="comment">
+					<!-- <input type="hidden" name="creator" value=""> -->
+					<input type="range" min="1" max="5" name="rating">
+					<!-- <input type="hidden" name="onModel" value="" > -->
+					<input type="submit" value="submit" class="btn btn-primary">
+
+
+				</form>
+				<% if (comments.length) { %>
+					<% comments.forEach(c=> { %>
+						<p>
+							<%=c.text%>
+						</p>
+						<p>
+							<%=c.rating%>
+						</p>
+						<% }) %>
+							<% } %>
 			</div>
 		</section>
 

@@ -22,22 +22,24 @@ a:hover {
 }
 
 .card {
-	transition: transform 300ms;
+	transition: transform 300ms, border-color 300ms;
+
 }
 
 .card-body {
 	background-color: #343a40;
 	transition: background-color 300ms;
+	border-radius: 0 0 0.25rem 0.25rem;
 }
 
 .card:hover>div.card-body {
-	/* background-color: #343a4089; */
 	background-color: transparent;
-	backdrop-filter: hue-rotate(50deg) saturate(200%);
 }
 
 .card:hover {
 	transform: translateY(-5px);
+	border-color: white;
+
 }
 
 .rgb {
@@ -119,6 +121,6 @@ a:hover {
 }
 
 .glass {
-	backdrop-filter: blur(14px) saturate(180%);
+	backdrop-filter: blur(16px) saturate(180%);
 	-webkit-backdrop-filter: blur(16px) saturate(180%);
 }
