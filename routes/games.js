@@ -6,5 +6,6 @@ router.get("/", gamesCtrl.index);
 router.get("/new", gamesCtrl.new);
 router.get("/:id", gamesCtrl.show);
 router.post("/", gamesCtrl.create);
+router.post("/:id/comments", gamesCtrl.createComment);
 
 module.exports = router;

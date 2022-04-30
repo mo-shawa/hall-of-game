@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    googleID: {
+        type: String,
+    },
     email: {
         type: String,
         required: true,
@@ -18,7 +21,12 @@ const userSchema = new mongoose.Schema({
     collections: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Collection'
-    }]
+    }],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }],
+
 
 });
 
