@@ -1,10 +1,11 @@
 const Game = require("../models/game");
 const Item = require("../models/item");
 const Comment = require("../models/comment");
+const User = require('../models/user')
 
 function index(req, res) {
 	Game.find({}, function (err, games) {
-		res.render("games/index", { games });
+		res.render("games/index", { games, user: req.user });
 	});
 }
 

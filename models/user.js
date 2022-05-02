@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
     name: String,
     displayName: {
         type: String,
-        required: true,
+        // required: true,
         unique: true
     },
     avatar: {

@@ -10,20 +10,20 @@ passport.use(new GoogleStrategy({
 },
     function (accessToken, refreshToken, profile, cb) {
         console.log(profile)
-        User.findOne({ 'googleID': profile.id }, function (err, student) {
+        User.findOne({ 'googleID': profile.id }, function (err, user) {
             if (err) return cb(err)
-            if (student) {
-                return cb(null, student)
+            if (user) {
+                return cb(null, user)
             } else {
                 let newUser = new User({
                     name: profile.displayName,
                     email: profile.emails[0].value,
-                    googleID: profil.id
+                    googleID: profile.id
                 })
 
                 newUser.save(function (err) {
                     if (err) return cb(err)
-                    return cb(null, student)
+                    return cb(null, user)
                 })
 
             }
@@ -32,7 +32,7 @@ passport.use(new GoogleStrategy({
 ))
 
 passport.serializeUser(function (user, done) {
-    document(null, user.id)
+    done(null, user.id)
 })
 
 passport.deserializeUser(function (id, done) {

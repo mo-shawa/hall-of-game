@@ -1,5 +1,4 @@
-<nav
-	class="
+<nav class="
 		p-2
 		navbar
 		d-flex
@@ -7,8 +6,7 @@
 		align-items-center
 		bg-black
 		pb-3
-	"
->
+	">
 	<div class="container">
 		<a href="/">
 			<h1 class="text-light">Hall of Game</h1>
@@ -16,9 +14,14 @@
 		<div class="nav-links">
 			<a href="/games"><button class="btn text-light">Games</button></a>
 			<a href="/items"><button class="btn text-light">Items</button></a>
-			<a href="/games/new"
-				><button class="btn bg-dark text-light">+ Add Game</button></a
-			>
+			<a href="/games/new"><button class="btn bg-dark text-light">+ Add Game</button></a>
+			<a href="/test"><button class="btn bg-dark text-light">+TEST</button></a>
+
+			<% if (user) { %>
+				<a href="/logout"><button class="btn bg-dark text-light">logout</button></a>
+				<% }else { %>
+					<a href="/auth/google"><button class="btn bg-success text-light">google</button></a>
+					<% } %>
 		</div>
 	</div>
 	<div class="rgb animated-gradient-hr"></div>

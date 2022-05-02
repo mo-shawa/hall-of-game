@@ -5,7 +5,8 @@ const passport = require('passport')
 /* GET home page. */
 router.get("/", function (req, res) {
 	// res.redirect("/items");
-	res.render('landing')
+	let user = req.user
+	res.render('landing', { user })
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -24,6 +25,11 @@ router.get('/oauth2callback', passport.authenticate(
 router.get('/logout', function (req, res) {
 	req.logOut()
 	res.redirect('/')
+})
+
+router.get('/test', function (req, res) {
+	console.log(req.user)
+	res.send("tested")
 })
 
 module.exports = router;
