@@ -5,22 +5,17 @@ const User = require("../models/user");
 
 function index(req, res) {
   Game.find({}, function (err, games) {
-    res.render("games/index", { games, user: req.user });
+    res.render("games/index", { games });
   });
 }
 
 async function show(req, res) {
-  // Item.find({ game: req.params.id })
-  // 	.populate("game").exec(function (err, items) {
-  // 		if (err) return res.send(err.message);
-  // 		res.render('games/view', { items });
-  // 	});
   const comments = await Comment.find({
     modelID: req.params.id,
     onModel: "Game",
   });
   const rating =
-    comments.reduce((acc, curr) => (acc + curr.rating) / comments.length, 3) /
+    comments.reduce((acc, curr) => (acc + curr.rating) / comments.length, 0) /
     comments.length;
 
   Game.findById(req.params.id, function (err, game) {
