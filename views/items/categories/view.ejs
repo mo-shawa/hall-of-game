@@ -8,7 +8,11 @@
 		<%-include('../../partials/nav')%> <% let num =
 		Math.floor(Math.random()*items.length) %>
 		<section class="container animated-gradient-hr pb-3 rounded-bottom">
-			<img src="<%=items[num].image%>" class="img-fluid" alt="" />
+			<img
+				src="<%=items[num].image%>"
+				class="img-fluid"
+				alt=""
+			/>
 		</section>
 		<section class="container my-3">
 			<h1 class="text-center text-light"><%=cat%>s</h1>
@@ -19,7 +23,11 @@
 					style="width: 18rem"
 				>
 					<a href="/items/<%=item._id%>">
-						<img class="card-img-top" src="<%=item.image%>" alt="" />
+						<img
+							class="card-img-top"
+							src="<%=item.image%>"
+							alt=""
+						/>
 						<div class="card-body">
 							<h5><%=item.name%></h5>
 							<a href="/games/<%=item.game._id%>"

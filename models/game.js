@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const gameSchema = new Schema({
 	name: String,
@@ -8,9 +8,9 @@ const gameSchema = new Schema({
 	releaseYear: {
 		type: Number,
 		default: function () {
-			return new Date().getFullYear();
+			return new Date().getFullYear()
 		},
 	},
-});
+})
 
-module.exports = mongoose.model("Game", gameSchema);
+module.exports = mongoose.model('Game', gameSchema)
