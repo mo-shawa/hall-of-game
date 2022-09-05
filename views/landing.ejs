@@ -1,65 +1,11 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<%- include('./partials/head')%>
+	</head>
 
-<head>
-    <%- include('./partials/head')%>
-</head>
-
-<body>
-    <%- include('./partials/nav')%>
-
-        <div class="container">
-            <div class="d-flex justify-content-center flex-wrap text-light">
-                hello plz signup
-            </div>
-            <section class="my-5 text-light d-flex justify-content-center">
-                <form action="/users" method="POST">
-                    <div class="form-group">
-                        <label for="username">Userame:</label>
-                        <br />
-                        <input class="form-control" type="text" name="username" id="username" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <br />
-                        <input class="form-control" type="email" name="email" id="email" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <br />
-
-                        <input class="form-control" name="password" id="password" type="text" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="">Confirm Password:</label>
-                        <br />
-                        <input class="form-control" type="text" name="password_confirm" id="password_confirm"
-                            required />
-                    </div>
-                    <button class="shadow btn btn-success btn-block" type="submit">
-                        Add Game
-                    </button>
-                </form>
-        </div>
-        <script>
-            const password = document.getElementById('password')
-            const passConfirm = document.getElementById('password_confirm')
-
-            function validatePassword() {
-                if (password.value != passConfirm.value) {
-                    passConfirm.setCustomValidity('Passwords do not match')
-                    console.log(`passwords dont match
-                    validity: ${passConfirm.checkValidity()}
-                    password: ${password.value}}
-                    passConfirm: ${passConfirm.value}`)
-                } else {
-                    passConfirm.setCustomValidity('')
-                }
-            }
-
-            passConfirm.onchange = validatePassword;
-
-        </script>
-</body>
-
+	<body>
+		<%- include('./partials/nav')%>
+		<h1>Coming soon</h1>
+	</body>
 </html>

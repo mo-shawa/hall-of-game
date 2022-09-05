@@ -5,6 +5,7 @@ body {
 a {
 	display: inline;
 	list-style: none;
+	text-decoration: none;
 	color: white;
 }
 
@@ -75,14 +76,13 @@ a:hover {
 		#cf5c5c,
 		#c19b4a
 	);
-	background-size: 1100% 100%;
+	background-size: 1100vw 100vw;
 }
 
 @keyframes animateBg2 {
 	0% {
 		background-position: 0% 0%;
 	}
-
 	100% {
 		background-position: 100% 0%;
 	}

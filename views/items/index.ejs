@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<%- include('../partials/head') %>
+	</head>
 
-<head>
-	<%- include('../partials/head') %>
-</head>
-
-<body>
-	<%- include('../partials/nav')%>
-		<% let num=Math.floor(Math.random()*items.length) %>
-			<div class="text-center" style="
+	<body>
+		<%- include('../partials/nav')%> <% let
+		num=Math.floor(Math.random()*items.length) %>
+		<div
+			class="text-center"
+			style="
 				background-image: url('<%=items[num].image%>');
 				background-size: cover;
-			">
-				<div class="p-5 glass" style="
-					
-				">
-					<h1 class="fs-4 p-5 w-50 mx-auto text-light">Items</h1>
-				</div>
+			"
+		>
+			<div class="p-5 glass">
+				<h1 class="fs-4 p-5 w-50 mx-auto text-light">Items</h1>
 			</div>
-			<div class="container py-3">
-				<div class="d-flex justify-content-center flex-wrap">
-					<% items.forEach(function(item){%>
-						<a href="/items/<%=item._id%>">
-							<div class="animated-gradient card shadow bg-dark m-2" style="width: 18rem;">
-								<img class="card-img-top" src="<%=item.image%>" />
+		</div>
+		<div class="container py-3">
+			<div class="d-flex justify-content-center flex-wrap">
+				<% items.forEach(function(item){%>
+				<a href="/items/<%=item._id%>">
+					<div
+						class="animated-gradient card shadow bg-dark m-2"
+						style="width: 18rem"
+					>
+						<img
+							class="card-img-top"
+							src="<%=item.image%>"
+						/>
 
-								<div class="card-body">
-									<h5 class="card-title">
-										<%=item.name%>
-									</h5>
-									<a href="/items/categories/<%=item.category%>">
-										<small class="shadow rounded-pill primary p-1 px-2 text-dark ">
-											<%=item.category%>
-										</small>
-									</a>
-								</div>
-						</a>
-				</div>
+						<div class="card-body">
+							<h5 class="card-title"><%=item.name%></h5>
+							<a href="/items/categories/<%=item.category%>">
+								<small class="shadow rounded-pill primary p-1 px-2 text-dark">
+									<%=item.category%>
+								</small>
+							</a>
+						</div>
+					</div>
 				</a>
 				<%})%>
 			</div>
-			</div>
-</body>
-
+		</div>
+	</body>
 </html>
 
 <!-- 
