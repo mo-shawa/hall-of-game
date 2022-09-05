@@ -3,10 +3,9 @@ const Item = require('../models/item')
 const Comment = require('../models/comment')
 const User = require('../models/user')
 
-function index(req, res) {
-	Game.find({}, function (err, games) {
-		res.render('games/index', { games })
-	})
+async function index(req, res) {
+	const games = await Game.find({})
+	res.render('games/index', { games })
 }
 
 async function show(req, res) {
@@ -14,35 +13,34 @@ async function show(req, res) {
 		modelID: req.params.id,
 		onModel: 'Game',
 	})
+
 	const rating =
 		comments.reduce((acc, curr) => (acc + curr.rating) / comments.length, 0) /
 		comments.length
-
-	Game.findById(req.params.id, function (err, game) {
-		Item.find({ game: game._id }, function (err, items) {
-			res.render('games/view', { game, items, comments, rating })
-		})
-	})
+	const game = await Game.findById(req.params.id)
+	console.log(game)
+	const items = await Item.find({ game: game._id })
+	res.render('games/view', { game, items, comments, rating })
 }
 
 function newGame(req, res) {
 	res.render('games/new')
 }
 
-function create(req, res) {
+async function create(req, res) {
 	for (let key in req.body) {
 		if (req.body[key] === '') delete req.body[key]
 	}
 	const game = new Game(req.body)
-	game.save(function (err) {
-		if (err) return res.send(err.message)
-		res.redirect(`/games/${game._id}`)
-	})
+	await game.save()
+	res.redirect(`/games/${game._id}`)
 }
 
 const createComment = async (req, res) => {
+	console.log('HERE----------')
 	req.body.modelID = req.params.id
 	req.body.onModel = 'Game'
+	console.log(req.body)
 	const comment = await new Comment(req.body)
 	console.log(comment)
 	await comment.save()
